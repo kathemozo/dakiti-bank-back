@@ -1,0 +1,41 @@
+
+GET http://localhost:3001/test
+
+###
+
+get https://dakiti-back.herokuapp.com/test
+
+###
+
+POST http://localhost:3001/api/testcards
+content-type: application/json
+
+{
+    "name": "Kharleann Cabrera",
+    "cvc": "123",
+    "card": "1000000000000000001",
+    "expirationDate": "1123",
+    "monto":"1000"
+}
+
+
+###
+
+
+POST https://dakiti-back.herokuapp.com/api/testcards
+content-type: application/json
+
+{
+    "name": "Kharleann Cabrera",
+    "cvc": "123",
+    "card": 1200000000000000000
+}
+
+###
+
+GET http://localhost:3002/api/tarjeta/2846684721564489556
+
+
+###
+
+

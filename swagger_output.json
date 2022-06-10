@@ -1,0 +1,244 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "DAKITI API",
+    "description": ""
+  },
+  "host":"dakiti-back.herokuapp.com",
+  "basePath": "/",
+  "schemes": [
+    "https", "http"
+  ],
+  "paths": {
+    "/api/testcards": {
+      "post": {
+        "description": "Api de prueba para los pagos mediante tarjeta: \nTarjetas de prueba:\n1864855486548852354 (CVC:123): Posee un monto máximo de 600, cualquier compra con un monto superior será rechazada por fondos insuficientes\n2846684721564489556 (CVC: 456): Posee un monto maximo de 1.000.000.000\nEn el cuerpo se está solicitando, la fecha de expiración de la tarjeta, el número, el codigo de seguridad de la tarjeta, el nombre del dueño y el monto a cobrar\npor los momentos el nombre y la fecha no son tomados en cuenta al momento de la validación",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "card": {
+                  "type":"string",
+                  "example": "2846684721564489556"
+                },
+                "cvc": {
+                  "type":"string",
+                  "example": "456"
+                },
+                "expirationDate": {
+                  "type":"string",
+                  "example": "1123"
+                },
+                "nombre": {
+                  "example": "Pedro Perez"
+                },
+                "monto": {
+                  "example": 100
+                },
+                "descripcion": {
+                  "example": "Pago de ropa"
+                },
+                "apiKey": {
+                  "example": "71b86b25305c5ae6028e0d6060658e3d9862a06d"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },"/api/cardPayment": {
+      "post": {
+        "description": "Api de prueba para los pagos mediante tarjeta: \nTarjetas de prueba:\n1864855486548852354 (CVC:123): Posee un monto máximo de 600, cualquier compra con un monto superior será rechazada por fondos insuficientes\n2846684721564489556 (CVC: 456): Posee un monto maximo de 1.000.000.000\nEn el cuerpo se está solicitando, la fecha de expiración de la tarjeta, el número, el codigo de seguridad de la tarjeta, el nombre del dueño y el monto a cobrar\npor los momentos el nombre y la fecha no son tomados en cuenta al momento de la validación",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "card": {
+                  "type":"string",
+                  "example": "2846684721564489556"
+                },
+                "cvc": {
+                  "type":"string",
+                  "example": "456"
+                },
+                "expirationDate": {
+                  "type":"string",
+                  "example": "1123"
+                },
+                "nombre": {
+                  "example": "Pedro Perez"
+                },
+                "monto": {
+                  "example": 100
+                },
+                "descripcion": {
+                  "example": "Pago de ropa"
+                },
+                "apiKey": {
+                  "example": "71b86b25305c5ae6028e0d6060658e3d9862a06d"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },"/api/otherBankCards": {
+      "post": {
+        "description": "Api de prueba para los pagos mediante tarjeta: \nTarjetas de prueba:\n1864855486548852354 (CVC:123): Posee un monto máximo de 600, cualquier compra con un monto superior será rechazada por fondos insuficientes\n2846684721564489556 (CVC: 456): Posee un monto maximo de 1.000.000.000\nEn el cuerpo se está solicitando, la fecha de expiración de la tarjeta, el número, el codigo de seguridad de la tarjeta, el nombre del dueño y el monto a cobrar\npor los momentos el nombre y la fecha no son tomados en cuenta al momento de la validación\nDescripcion: Motivo o causa de la transaccion",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "card": {
+                  "type":"string",
+                  "example": "2846684721564489556"
+                },
+                "cvc": {
+                  "type":"string",
+                  "example": "456"
+                },
+                "expirationDate": {
+                  "type":"string",
+                  "example": "1123"
+                },
+                "monto": {
+                  "example": 100
+                },
+                "descripcion": {
+                  "example": "Compra de ropa"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },"/api/otherBankTransfer": {
+      "post": {
+        "description": "cuentaDestino: Cuenta a la que se le va a transferir\ncuentaOrigen: Cuenta de la cual viene el dinero\nmonto:Cantidad a transferir\nidentificador: cedula de la persona a la que se le va a transferir\ndescripcion:Motivo o razón de la transferencia",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cuentaDestino": {
+                  "type":"string",
+                  "example": "11052970691113092701"
+                },
+                "cuentaOrigen": {
+                  "type":"string",
+                  "example": "11052970691113092701"
+                },
+                "identificador": {
+                  "type":"string",
+                  "example": "25831122"
+                },
+                "identificadorTipo": {
+                  "type":"string",
+                  "example": "V"
+                },
+                "descripcion": {
+                  "type":"string",
+                  "example": "Monto de prueba"
+                },
+                "monto": {
+                  "example": 100
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },"/api/transferenciaOtherBankDemo": {
+      "post": {
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cuentaOrigen": {
+                  "type":"string",
+                  "example": "11052970691113092701"
+                },
+                "cuentaDestino": {
+                  "type":"string",
+                  "example": "00691337695271450241"
+                },
+                "identificador": {
+                  "type":"string",
+                  "example": "25831122"
+                },
+                "identificadorTipo": {
+                  "type":"string",
+                  "example": "V"
+                },
+                "nombre": {
+                  "example": "Pedro Perez"
+                },
+                "monto": {
+                  "example": 100
+                },
+                "descripcion": {
+                  "example": "Pago de ropa"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}
